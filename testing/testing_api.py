@@ -16,14 +16,10 @@ import base64
 import json
 import requests
 
-ScriptName = "Rocksmith Song Request"
-Website = "https://github.com/ajchili/rssr"
-Description = "Rocksmith song request bot for Spotify links"
-Creator = "ajchili (Kirin Patel)"
-Version = "0.1.0"
-
-configFile = "config.json"
-settings = {}
+settings = {
+    'client_id': '',
+    'client_secret': ''
+}
 
 
 def get_credentials():
@@ -54,12 +50,8 @@ def get_track_id_from_link(link):
 
 
 def get_track_from_id(track_id):
-    bearer = get_credentials()
-    if bearer is None:
-        return None
-
     headers = {
-        'Authorization': 'Bearer %s' % (bearer)
+        'Authorization': 'Bearer %s' % (get_credentials())
     }
     url = 'https://api.spotify.com/v1/tracks/%s' % (track_id)
     result = requests.get(url, headers=headers)
@@ -68,3 +60,9 @@ def get_track_from_id(track_id):
         return '%s - %s' % (data['artists'][0]['name'], data['name'])
 
     return None
+
+
+track_url = 'https://open.spotify.com/track/3maieirJLu0ogJ8ynrQR8S?si=7-x6uTCHR52_NPrLxwWV6g'
+track_id = get_track_id_from_link(track_url)
+track = get_track_from_id(track_id)
+print(track)
