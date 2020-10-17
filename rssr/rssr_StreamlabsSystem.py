@@ -13,8 +13,10 @@
 #    limitations under the License.
 
 import base64
+import codecs
 import json
 import requests
+import os
 
 ScriptName = "Rocksmith Song Request"
 Website = "https://github.com/ajchili/rssr"
@@ -68,3 +70,41 @@ def get_track_from_id(track_id):
         return '%s - %s' % (data['artists'][0]['name'], data['name'])
 
     return None
+
+
+def Init():
+    global settings
+
+    path = os.path.dirname(__file__)
+    try:
+        with codecs.open(os.path.join(path, configFile), encoding='utf-8-sig', mode='r') as file:
+            settings = json.load(file, encoding='utf-8-sig')
+    except:
+        settings = {
+            "liveOnly": True,
+            "command": "!ssr"
+        }
+
+
+def Execute(data):
+    if data.IsChatMessage() and data.GetParam(0).lower() == settings["command"]:
+        outputMessage = '!sr $track @$user'
+        username = data.UserName
+        track_id = get_track_id_from_link(data.GetParam(1))
+        track = get_track_from_id(track_id)
+
+        outputMessage.replace('$track', track)
+        outputMessage.replace('$user', username)
+
+        Parent.SendStreamMessage(outputMessage)
+
+    return
+
+
+def ReloadSettings(jsonData):
+    Init()
+    return
+
+
+def Tick():
+    return
