@@ -1,8 +1,8 @@
 ===============================================================================
- Name: Rocksmith Link Song Request
+ Name: Rocksmith Song Request
  Version: 0.1.0
  Creator: ajchili (Kirin Patel)
- Website:	https://github.com/ajchili/rslsr
+ Website:	https://github.com/ajchili/rssr
 ===============================================================================
  - Customisable command name
 ===============================================================================

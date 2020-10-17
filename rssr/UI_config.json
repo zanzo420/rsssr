@@ -2,7 +2,7 @@
   "output_file": "config.json",
   "command": {
     "type": "textbox",
-    "value": "!lsr",
+    "value": "!ssr",
     "label": "Command",
     "tooltip": "Name of the command",
     "group": "General"
