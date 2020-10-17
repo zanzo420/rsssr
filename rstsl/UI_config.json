@@ -1,0 +1,24 @@
+{
+  "output_file": "config.json",
+  "command": {
+    "type": "textbox",
+    "value": "!lsr",
+    "label": "Command",
+    "tooltip": "Name of the command",
+    "group": "General"
+  },
+  "client_id": {
+    "type": "textbox",
+    "value": "",
+    "label": "Spotify Client ID",
+    "tooltip": "Client ID for your Spotiy developer account",
+    "group": "Spotify Config"
+  },
+  "client_secret": {
+    "type": "textbox",
+    "value": "",
+    "label": "Spotify Client Secret",
+    "tooltip": "Client secret for your Spotiy developer account",
+    "group": "Spotify Config"
+  }
+}
