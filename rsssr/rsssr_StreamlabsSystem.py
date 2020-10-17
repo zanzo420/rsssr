@@ -18,8 +18,8 @@ import json
 import requests
 import os
 
-ScriptName = "Rocksmith Song Request"
-Website = "https://github.com/ajchili/rssr"
+ScriptName = "ocksmith Spotify Song Requester"
+Website = "https://github.com/ajchili/rsssr"
 Description = "Rocksmith song request bot for Spotify links"
 Creator = "ajchili (Kirin Patel)"
 Version = "0.1.0"
