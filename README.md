@@ -9,9 +9,9 @@ links to request songs for Rocksmith streamers to play.
 
 1. [Streamlabs Chatbot](https://streamlabs.com/chatbot/)
 2. [Python 2.7 🙃](https://www.python.org/download/releases/2.7/)
-3. A Spotify developer account and app
+3. A Spotify developer account and application
 
-### Creating a Spotify Developer Account
+### Creating a Spotify Developer Account & Application
 
 1. Navigate to [developer.spotify.com](https://developer.spotify.com/dashboard/)
 2. Login to your account or create an account
