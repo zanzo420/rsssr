@@ -15,14 +15,13 @@
 import base64
 import codecs
 import json
-import requests
 import os
 
 ScriptName = "ocksmith Spotify Song Requester"
 Website = "https://github.com/ajchili/rsssr"
 Description = "Rocksmith song request bot for Spotify links"
 Creator = "ajchili (Kirin Patel)"
-Version = "0.1.0"
+Version = "0.2.0"
 
 configFile = "config.json"
 settings = {}
@@ -33,15 +32,14 @@ def get_credentials():
     client_id = settings['client_id']
     client_secret = settings['client_secret']
     grant_type = 'client_credentials'
-    body_params = {'grant_type': grant_type}
+    bearer = base64.b64encode('%s:%s' % (client_id, client_secret))
+    headers = {
+        'Authorization': 'Bearer %s' % (bearer)
+    }
+    body = {'grant_type': grant_type}
     url = 'https://accounts.spotify.com/api/token'
-
-    response = requests.post(url, data=body_params,
-                             auth=(client_id, client_secret))
-    if response.status_code is 200:
-        return json.loads(response.text)["access_token"]
-
-    return None
+    response = Parent.PostRequest(url, headers, body, True)
+    return json.loads(response)["access_token"]
 
 
 def is_valid_link(link):
@@ -64,12 +62,9 @@ def get_track_from_id(track_id):
         'Authorization': 'Bearer %s' % (bearer)
     }
     url = 'https://api.spotify.com/v1/tracks/%s' % (track_id)
-    result = requests.get(url, headers=headers)
-    if result.status_code is 200:
-        data = result.json()
-        return '%s - %s' % (data['artists'][0]['name'], data['name'])
-
-    return None
+    result = Parent.GetRequest(url, headers)
+    data = json.loads(result)
+    return '%s - %s' % (data['artists'][0]['name'], data['name'])
 
 
 def Init():
