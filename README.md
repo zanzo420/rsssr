@@ -3,6 +3,16 @@
 Rocksmith Spotify Song Requester allows for user in Twitch chat to use Spotify
 links to request songs for Rocksmith streamers to play.
 
+## Using RSSSR
+
+After obtaining all of the requirements, head on over to the
+[RSSR web page](https://ajchili.github.io/rsssr/src/index.html) and provide all
+the required details before connecting to your channel. The rest will be
+handled automatically!
+
+Viewers can now use **!ssr SPOTIFY_SONG_LINK** to request songs via spotify
+links.
+
 ## Setup
 
 ### Requirements
