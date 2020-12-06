@@ -7,9 +7,8 @@ links to request songs for Rocksmith streamers to play.
 
 ### Requirements
 
-1. [Streamlabs Chatbot](https://streamlabs.com/chatbot/)
-2. [Python 2.7 🙃](https://www.python.org/download/releases/2.7/)
-3. A Spotify developer account and application
+1. A Twitch account to serve as a bot
+2. A Spotify developer account and application
 
 ### Creating a Spotify Developer Account & Application
 
