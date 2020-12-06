@@ -60,10 +60,9 @@ class Bot {
         console.log('Processing request...');
         try {
             const track = await this._getTrack(link);
-            console.log(track);
             this.client.say(channel, `!sr ${track} @${sender}`);
         } catch (err) {
-            console.error(err)
+            console.error(err);
         }
     }
 
